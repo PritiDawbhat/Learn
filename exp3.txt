@@ -1,0 +1,139 @@
+package javac;
+import java.util.Scanner;
+class Employee{
+    private String name,address,mailId;
+    private int empId;
+    private long mobile;
+    Scanner sc=new Scanner(System.in);
+    void getdata(){
+        System.out.print("Enter the employee name:");
+        this.name=sc.nextLine();
+        System.out.print("Enter the employee address:");
+        this.address=sc.nextLine();
+        System.out.print("Enter the employee mailId:");
+        this.mailId=sc.nextLine();
+        System.out.print("Enter the employee empId:");
+        this.empId=sc.nextInt();
+        System.out.print("Enter the employee mobile no:");
+        this.mobile=sc.nextLong();
+    }
+    void display(){
+        System.out.println("Entered employee info and sellary");
+        System.out.println("Employee name:"+this.name);
+        System.out.println("Employee address:"+this.address);
+        System.out.println("Employee mailId:"+this.mailId);
+        System.out.println("Employee empId:"+this.empId);
+        System.out.println("Employee mobile no:"+this.mobile);
+    }
+
+}
+class Programmer extends Employee{
+    double bp,da=97,hra=10,pf=12,club=0.1,net,gross;
+    void getasst(){
+        System.out.print("Enter the Basic Pay: ");
+        this.bp=sc.nextDouble();
+    }
+
+    void calculate(){
+        this.gross=this.bp+(this.da*this.bp)/100+(this.hra*this.bp)/100;
+        this.net=this.gross-(this.pf/100+this.club/100);
+        System.out.println("Gross salary is: "+this.gross+"/-");
+        System.out.println("Net salary is: "+this.net+"/-");
+    }
+}
+class TemLead extends Employee{
+    double bp,da=97,hra=10,pf=12,club=0.1,net,gross;
+    void getasst(){
+        System.out.print("Enter the Basic Pay: ");
+        this.bp=sc.nextDouble();
+    }
+    void calculate(){
+    	this.gross=this.bp+(this.da*this.bp)/100+(this.hra*this.bp)/100;
+        this.net=this.gross-(this.pf/100+this.club/100);
+        System.out.println("Gross salary is: "+this.gross+"/-");
+        System.out.println("Net salary is: "+this.net+"/-");
+    }
+}
+class AssistantProjectManager extends Employee{
+    double bp,da=97,hra=10,pf=12,club=0.1,net,gross;
+    void getasst(){
+        System.out.print("Enter the Basic Pay: ");
+        this.bp=sc.nextDouble();
+    }
+    void calculate(){
+    	this.gross=this.bp+(this.da*this.bp)/100+(this.hra*this.bp)/100;
+        this.net=this.gross-(this.pf/100+this.club/100);
+        System.out.println("Gross salary is: "+this.gross+"/-");
+        System.out.println("Net salary is: "+this.net+"/-");
+    }
+}
+class ProjectManager extends Employee{
+    double bp,da=97,hra=10,pf=12,club=0.1,net,gross;
+    void getasst(){
+        System.out.print("Enter the Basic Pay: ");
+        this.bp=sc.nextDouble();
+    }
+    void calculate(){
+    	this.gross=this.bp+(this.da*this.bp)/100+(this.hra*this.bp)/100;
+        this.net=this.gross-(this.pf/100+this.club/100);
+        System.out.println("Gross salary is: "+this.gross+"/-");
+        System.out.println("Net salary is: "+this.net+"/-");
+    }
+}
+public class exp3Main{
+    public static void main(String[] args) {
+        Scanner sc1 = new Scanner(System.in);
+        System.out.println("Enter the Employee states as below");
+        System.out.print("1.Programmer\n2.TeamLeader\n3.Assistant Project Manager\n4.Project Manager");
+        int ch = sc1.nextInt();
+        Employee ob0 = new Employee();
+       switch(ch) {
+           case 1:
+               Programmer ob1 = new Programmer();
+               //Employee ob0 = new Programmer();
+               ob0.getdata();
+               //ob0.display();
+               ob1.getasst();
+               System.out.println("------------------------------------------");
+               ob0.display();
+               System.out.println("----------------(Salary)------------------");
+               ob1.calculate();
+               break;
+           case 2:
+        	   //Employee ob = new TemLead();
+        	   TemLead ob2 = new TemLead();
+               ob0.getdata();
+               ob2.getasst();
+               System.out.println("------------------------------------------");
+               ob0.display();
+               System.out.println("----------------(Salary)------------------");
+               ob2.calculate();
+               break;
+           case 3:
+        	   //Employee obj=new AssistantProjectManager();
+               AssistantProjectManager ob3 = new AssistantProjectManager();
+               ob0.getdata();
+               //ob0.display();
+               ob3.getasst();
+               System.out.println("------------------------------------------");
+               ob0.display();
+               System.out.println("----------------(Salary)------------------");
+               ob3.calculate();
+               break;
+           case 4:
+        	   //Employee obj1=new ProjectManager();
+               ProjectManager ob4 = new ProjectManager();
+               ob0.getdata();
+               //ob0.display();
+               ob4.getasst();
+               System.out.println("------------------------------------------");
+               ob0.display();
+               System.out.println("----------------(Salary)------------------");
+               ob4.calculate();
+               break;
+           default:
+               System.out.println("yor are not Employee");
+               break;
+       }
+    }
+}

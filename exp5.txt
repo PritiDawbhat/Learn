@@ -1,0 +1,128 @@
+package com.exp3;
+import java.util.Scanner;
+interface Vehicle{
+    void changeGear(int a);
+    void speedUp(int a);
+    void applyBrakes(int a);
+}
+class Bicycle implements Vehicle{
+    int sp=0,gr,de;
+    //private int gr1;
+
+    //@Override
+    public void changeGear(int gr1) {
+        gr=gr1;
+    }
+
+   // @Override
+    public void speedUp(int sp1) {
+        sp=sp+sp1;
+    }
+
+    //@Override
+    public void applyBrakes(int de) {
+       sp=sp-de;
+    }
+    public void display(){
+        System.out.println("speed:"+sp+"\ngear:"+gr);
+    }
+}
+class Bike implements Vehicle{
+    public int sp=0,gr,de;
+    //private int gr1;
+
+    //@Override
+    public void changeGear(int gr1) {
+        gr=gr1;
+    }
+
+    // @Override
+    public void speedUp(int sp1) {
+        sp=sp+sp1;
+    }
+
+    //@Override
+    public void applyBrakes(int de1) {
+        sp=sp-de1;
+    }
+    public void display(){
+        System.out.println("speed:"+sp+"\ngear"+gr);
+    }
+}
+class Car implements Vehicle{
+    public int sp=0,gr,de,sp1;
+    //private int gr1;
+
+    //@Override
+    public void changeGear(int gr1) {
+        gr=gr1;
+    }
+
+    // @Override
+    public void speedUp(int sp1) {
+        sp=sp+sp1;
+    }
+
+    //@Override
+    public void applyBrakes(int de1) {
+        sp=sp-de1;
+    }
+    public void display(){
+        System.out.println("speed:"+sp+"\ngear:"+gr);
+    }
+}
+public class ex5Main {
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        /*Bicycle ob1=new Bicycle();
+        ob1.changeGear(2);
+        ob1.speedUp(5);
+        ob1.applyBrakes(1);
+        System.out.println("Bicycle present state:");
+        ob1.display();*/
+        System.out.println("Enter the below any Vehical");
+        System.out.println("1.Bicycle\t2.Bike\t3.Car");
+        int ch= sc.nextInt();
+        switch (ch){
+            case 1:Bicycle ob1=new Bicycle();
+                   System.out.println("Enter the gear");
+                   int gr1= sc.nextInt();
+                   System.out.println("Enter the increase speed");
+                   int sp1= sc.nextInt();
+                   System.out.println("Enter the decease speed");
+                   int de1= sc.nextInt();
+                   ob1.changeGear(gr1);
+                   ob1.speedUp(sp1);
+                   ob1.applyBrakes(de1);
+                   System.out.println("Bicycle present state:");
+                   ob1.display();
+                   break;
+            case 2:Bike ob2=new Bike();
+                System.out.println("Enter the gear");
+                int gr2= sc.nextInt();
+                System.out.println("Enter the increase speed");
+                int sp2= sc.nextInt();
+                System.out.println("Enter the decease speed");
+                int de2= sc.nextInt();
+                ob2.changeGear(gr2);
+                ob2.speedUp(sp2);
+                ob2.applyBrakes(de2);
+                System.out.println("Bike present state:");
+                ob2.display();
+                break;
+            case 3: Car ob3=new Car();
+                System.out.println("Enter the gear");
+                int gr3= sc.nextInt();
+                System.out.println("Enter the increase speed");
+                int sp3= sc.nextInt();
+                System.out.println("Enter the decease speed");
+                int de3= sc.nextInt();
+                ob3.changeGear(gr3);
+                ob3.speedUp(sp3);
+                ob3.applyBrakes(de3);
+                System.out.println("Bicycle present state:");
+                ob3.display();
+                break;
+        }
+    }
+}

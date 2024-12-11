@@ -1,0 +1,69 @@
+package javac;
+import java.util.Scanner;
+class Exception{
+	Scanner sc1=new Scanner(System.in);
+	void ArrIndex(){
+		int arr[]={1,2,3,4,5,6,7,8,9,10};
+		try{
+	            System.out.println("enter the number which you have to enter in array:");
+	            int n=sc1.nextInt();
+	            arr[11]=n;
+	            System.out.println("Entered arr elment");
+	            for(int i=0;i<11;i++){
+	       	     System.out.println(arr[i]);
+	            }
+	    }catch(ArrayIndexOutOfBoundsException e){
+	   	 System.out.println("we can't exssed the size of Array  ");
+	   	 e.printStackTrace();
+	    }
+	}
+	void ArithmeticExp(){
+		int n1,n2;
+		try{
+			   System.out.println("Enter the 1st number:");
+			   n1=sc1.nextInt();
+			   System.out.println("Enter the 2nd number:");
+			   n2=sc1.nextInt();
+			   n1=n1/n2;
+			   System.out.println("Result is: "+n1);
+		}catch(ArithmeticException e){
+			   System.out.println("It is not possible we can't divide any number by zero so their for: "+e);
+		}
+	}
+	void NumFormat(){
+		int n1,n2,result;
+		try{
+			System.out.println("enter the 1st number:");
+			n1=Integer.parseInt(sc1.next());
+			System.out.println("enter the 2nd number:");
+			n2=Integer.parseInt(sc1.next());
+			result=n1/n2;
+			System.out.println("Result is: "+result);
+		}catch(NumberFormatException e){
+			System.out.println("you have to enter integer othrewise you will get this Exception: "+e);
+		}
+	}
+}
+
+public class exp6Main {
+	public static void main(String[] args) {
+         Scanner sc=new Scanner(System.in);
+         Exception obj=new Exception();
+         int ch,ans=0;
+         do{
+         System.out.println("1.ArrIndex\n2.ArithmeticExp\n3.NumFormat\n");
+         ch=sc.nextInt();
+	         switch(ch){
+	              case 1:obj.ArrIndex();
+	                     break;
+	              case 2:obj.ArithmeticExp();
+	                     break;
+	              case 3:obj.NumFormat();
+	                     break;
+	         }
+	         System.out.println("Do you want to continue 1.yes or 2.no");
+	         ans=sc.nextInt();
+         }while(ans==1);
+	}  
+
+}

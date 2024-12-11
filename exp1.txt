@@ -1,0 +1,80 @@
+package javac;
+import java.util.Scanner;
+class Publication{
+	private String title;
+	protected double price;
+	private int copies;
+	Publication(String title,double price,int copies){
+		this.title=title;
+		this.price=price;
+		this.copies=copies;
+	}
+	public int getcopies(){
+		return this.copies;
+	}
+	public void setcopies(int copies){
+		this.copies=copies;
+	}
+	public void sellcopy(int qty){
+		System.out.println("Total Publication Sell:$"+(qty*price));
+	}
+}
+
+
+class Book extends Publication{
+	public String author;
+	//private int price;
+    Book(String title,double price,int copies,String author){
+		super(title,price,copies); 
+    	this.author=author;
+	}
+    
+	public void ordercopies(int pcopies){
+		 setcopies(getcopies()+pcopies);
+	}
+	public void sellcopy(int qty){
+		 System.out.println("Total Book sell:$"+(qty*price));
+	}
+}
+class Magazine extends Publication{
+	public int orderQty;
+	private String currIssue;
+	Magazine(String title,double price,int copies,int orderQty,String currIssue){
+		super(title,price,copies);
+		this.orderQty=orderQty;
+		this.currIssue=currIssue;
+	}
+	public void recvNewIssue(String pNewIssue){
+		setcopies(orderQty);
+		currIssue=pNewIssue;
+	}
+	public void sellcopy(int qty){
+		System.out.println("Total Magazine sell:$"+(qty*price));
+	}
+}
+public class mainClass {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.print("Title is: ");
+		String title=sc.nextLine();
+		System.out.print("Price is: ");
+		double price=sc.nextDouble();
+		System.out.print("Copies is: ");
+		int copies=sc.nextInt();
+		System.out.print("Author is: ");
+		String author=sc.next();
+		System.out.print("orderQty is: ");
+		int orderQty=sc.nextInt();
+		System.out.print("Current Issue is: ");
+		String currIssue=sc.next();
+		
+		Book obj1=new Book(title,price,copies,author);
+		obj1.ordercopies(copies);
+		Magazine obj4= new Magazine(title,price,copies,orderQty,currIssue);
+		Publication obj2=new Book(title,price,copies,author);
+		obj2.sellcopy(copies);
+		Publication obj3=new Publication(title,price,copies);
+		obj3.sellcopy(copies);
+	}
+
+}
